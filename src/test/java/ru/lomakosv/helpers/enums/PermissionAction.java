@@ -1,4 +1,4 @@
-package ru.lomakosv.constants;
+package ru.lomakosv.helpers.enums;
 
 public enum PermissionAction {
 
