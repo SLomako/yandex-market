@@ -10,6 +10,7 @@ public class AuthorizationPage {
 
     private final SelenideElement backButton = $(accessibilityId("Назад"));
 
+    //todo проверить что страница авторизации загрузилась
     public void navigateBackToAuthorizationPage() {
         backButton.shouldBe(visible).click();
     }
