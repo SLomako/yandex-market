@@ -1,16 +1,16 @@
-package ru.lomakosv.config;
+package ru.lomakosv.configs;
 
 import org.aeonbits.owner.Config;
 
 /**
- * Чтение ключей из emulator.properties
+ * Чтение ключей из driver.properties
  */
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
-        "classpath:configs/emulator.properties",
+        "classpath:configs/driver.properties",
 })
-public interface EmulatorConfig extends Config {
+public interface DriverConfig extends Config {
     @Key("deviceName")
     String deviceName();
 
