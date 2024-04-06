@@ -8,6 +8,13 @@ public enum PermissionAction {
     SKIP("SKIP"),
     GOT_IT("GOT IT");
 
+    private final String actionText;
+
     PermissionAction(String actionText) {
+        this.actionText = actionText;
+    }
+
+    public String getActionText() {
+        return this.actionText;
     }
 }

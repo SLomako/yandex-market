@@ -34,7 +34,8 @@ public class AppDialogManager {
         String expectedText = "Allow Я.Маркет to access this device’s location?";
 
         if (permissionMessage.is(text(expectedText), Duration.ofSeconds(8))) {
-            $(androidUIAutomator("new UiSelector().text(\"" + actionText + "\")")).click();
+            String actionTextString = actionText.getActionText();
+            $(androidUIAutomator("new UiSelector().text(\"" + actionTextString + "\")")).click();
         }
         return this;
     }
