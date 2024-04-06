@@ -1,4 +1,4 @@
-package ru.lomakosv.pages;
+package ru.lomakosv.helpers;
 
 import com.codeborne.selenide.Selenide;
 
