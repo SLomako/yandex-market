@@ -3,29 +3,38 @@ package ru.lomakosv.tests;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
+import ru.lomakosv.pages.AppDialogManager;
+import ru.lomakosv.pages.AuthorizationPage;
 
 import java.util.Map;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
-import static io.appium.java_client.AppiumBy.*;
+import static io.appium.java_client.AppiumBy.androidUIAutomator;
+import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static ru.lomakosv.constants.PermissionAction.DONT_ALLOW;
+import static ru.lomakosv.constants.PermissionAction.SKIP;
 
 public class CartTest extends TestBase {
 
     private String bookName;
 
+    private final AuthorizationPage authorizationPage = new AuthorizationPage();
+    private final AppDialogManager appInitializationHandler = new AppDialogManager();
+
     @Test
     void testCaseOne() {
         step("Закрыть окно авторизации для выбора Яндекс аккаунта", () -> {
-            $(accessibilityId("Назад")).shouldBe(visible).click();
+            authorizationPage.navigateBackToAuthorizationPage();
 
-            $(id("ru.beru.android:id/closeButton")).click();
-            $(id("com.android.permissioncontroller:id/permission_deny_button")).click();
-            $(id("ru.beru.android:id/closeButton")).click();
-            $(id("ru.beru.android:id/closeButton")).click();
-            $(id("ru.beru.android:id/negativeButton")).click();
+            appInitializationHandler
+                    .closeNotificationDialogIfNeeded()
+                    .chooseLocationPermissionAction(DONT_ALLOW)
+                    .closeLocationSelectionIfNeeded()
+                    .closeAdvertisementIfNeeded()
+                    .chooseCookiePopup(SKIP);
         });
         step("Перейти в каталог, во вторую вкладку для выбора разделов", () -> {
             $(androidUIAutomator("new UiSelector().resourceId(\"ru.beru.android:id/icon\").instance(1)")).click();
@@ -39,7 +48,6 @@ public class CartTest extends TestBase {
                     "action", "scroll"
             ));
             Selenide.sleep(1000);
-            //$(androidUIAutomator("new UiSelector().className(\"android.widget.ImageView\").instance(8)")).click();
             $(androidUIAutomator("new UiSelector().className(\"android.widget.TextView\").text(\"Книги\")")).click();
         });
 
@@ -55,7 +63,6 @@ public class CartTest extends TestBase {
             }
 
             bookName = $(id("ru.beru.android:id/description")).text();
-            System.out.println("Название книги: " + bookName);
             cartButton.shouldBe(visible).click();
 
         });
