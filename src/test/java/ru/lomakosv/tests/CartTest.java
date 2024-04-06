@@ -38,15 +38,12 @@ public class CartTest extends TestBase {
         step("Перейти в каталог, во вторую вкладку для выбора разделов", () -> {
             navigationBar.clickOnCatalog();
         });
-
         step("Перейти в раздел 'Книги'", () -> {
             Utils.scrollToAndClick("Книги");
         });
-
         step("Добавить первый предложенный товар в корзину по кнопке 'В корзину'", () -> {
             productName = catalogPage.addFirstProductToCart();
         });
-
         step("Перейти в корзину и проверить, что выбранный товар отображается в корзине", () -> {
             navigationBar.clickOnCart();
             boolean isBookPresentInCart = cartPage.isProductPresentInCart(productName);

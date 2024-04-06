@@ -1,20 +1,32 @@
 package ru.lomakosv.drivers;
 
+import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
+import static io.appium.java_client.remote.MobilePlatform.ANDROID;
+
 import com.codeborne.selenide.WebDriverProvider;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
+
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 
-import javax.annotation.Nonnull;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
-import static io.appium.java_client.remote.MobilePlatform.ANDROID;
+import javax.annotation.Nonnull;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import ru.lomakosv.config.ConfigReader;
 
 public class LocalDriver implements WebDriverProvider {
+
+    private static final String DEVICE_NAME = ConfigReader.emulatorConfig.deviceName();
+    private static final String VERSION = ConfigReader.emulatorConfig.version();
+    private static final String APP_PACKAGE = ConfigReader.emulatorConfig.appPackage();
+    private static final String APP_ACTIVITY = ConfigReader.emulatorConfig.appActivity();
+    private static final String APP = ConfigReader.emulatorConfig.app();
+    private static final String URL = ConfigReader.emulatorConfig.remoteURL();
+
 
     @Nonnull
     @Override
@@ -22,31 +34,30 @@ public class LocalDriver implements WebDriverProvider {
         UiAutomator2Options options = new UiAutomator2Options();
 
         options.setAutomationName(ANDROID_UIAUTOMATOR2)
+                .setLanguage("en")
+                .setLocale("US")
                 .setPlatformName(ANDROID)
-                .setPlatformVersion("14.0")
-                .setDeviceName("Pixel_3a_API_34_extension_level_7_arm64-v8a")
+                .setPlatformVersion(VERSION)
+                .setDeviceName(DEVICE_NAME)
+                .setAppPackage(APP_PACKAGE)
+                .setAppActivity(APP_ACTIVITY)
                 .setApp(getAppPath())
                 .setNoReset(false)
-                .setFullReset(true)
-                .setAppPackage("ru.beru.android")
-                .setAppActivity("ru.yandex.market.ui.splash.MarketSplashActivity");
+                .setFullReset(true);
 
         return new AndroidDriver(getAppiumServerUrl(), options);
     }
 
-    public static URL getAppiumServerUrl() {
+    private static URL getAppiumServerUrl() {
         try {
-            return new URL("http://localhost:4723/wd/hub");
+            return new URL(URL);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
     }
 
     private String getAppPath() {
-        String appVersion = "yandex-market.apk";
-        String appPath = "src/test/resources/apps/" + appVersion;
-
-        File app = new File(appPath);
+        File app = new File(APP);
         if (!app.exists()) {
             throw new AssertionError("Application file not found: " + app.getAbsolutePath());
         }
