@@ -89,7 +89,7 @@ set PATH=%PATH%;%ANDROID_HOME%\emulator;%ANDROID_HOME%\tools;%ANDROID_HOME%\tool
 ```bash
 appium --base-path /wd/hub
 ```
-Настройте параметры устройства в вашем тестовом коде или в файле конфигурации.
+Настройте параметры устройства файле конфигурации `src/test/resources/configs/driver.properties`.
 
 ### Запуск тестов
 
