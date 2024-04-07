@@ -4,76 +4,65 @@
 <img title="Яндекс-Маркет" src=".github/logo/logo.png">
 </p>
 
-<h2>Настройка среды</h2>
+<h1>Настройка проекта</h1>
 
-<h3>Предварительная проверка</h3>
+<h2>Предварительная проверка</h2>
+
 <details>
-<summary>Кликните здесь, чтобы проверить установленные компоненты и настроенные пути</summary>
+<summary>Перед началом работы проверьте следующие компоненты:</summary>
 
-Откройте терминал (на macOS) или командную строку/PowerShell (на Windows) и выполните следующие команды:
+<h3>Проверка установленных компонентов</h3>
 
-<ul>
-<li>Проверка версии Java:
-<pre><code>java -version</code></pre>
-</li>
+<p>Откройте терминал (на macOS) или командную строку/PowerShell (на Windows) и выполните следующие команды:</p>
 
-<li>Проверка версии Node.js:
-<pre><code>node -v</code></pre>
-</li>
+<pre><code>java -version       # Проверка Java
+node -v             # Проверка Node.js
+npm -v              # Проверка NPM
+appium -v           # Проверка Appium
+echo $ANDROID_HOME  # Проверка пути Android SDK (macOS)
+echo $JAVA_HOME     # Проверка пути Java JDK (macOS)
+echo %ANDROID_HOME% # Проверка пути Android SDK (Windows)
+echo %JAVA_HOME%    # Проверка пути Java JDK (Windows)
+adb version         # Проверка Android Debug Bridge
+</code></pre>
 
-<li>Проверка версии NPM:
-<pre><code>npm -v</code></pre>
-</li>
+<h3>Проверка переменных среды</h3>
 
-<li>Проверка версии Appium:
-<pre><code>appium -v</code></pre>
-</li>
+<details>
+<summary>Убедитесь, что переменные среды настроены правильно:</summary>
 
-<li>Проверка путей для Android SDK (macOS):
-<pre><code>echo $ANDROID_HOME</code></pre>
-<pre><code>echo $PATH</code></pre>
-</li>
+<p>Для macOS:</p>
 
-<li>Проверка путей для Android SDK (Windows):
-<pre><code>echo %ANDROID_HOME%</code></pre>
-<pre><code>echo %PATH%</code></pre>
-</li>
+<pre><code>echo $ANDROID_HOME
+echo $PATH
+echo $JAVA_HOME
+</code></pre>
 
-<li>Проверка доступности Android Debug Bridge (ADB):
-<pre><code>adb version</code></pre>
-</li>
+<p>Для Windows введите в командной строке:</p>
 
-<li>Проверка установленной JDK:
-<pre><code>echo $JAVA_HOME</code></pre> (macOS)
-<pre><code>echo %JAVA_HOME%</code></pre> (Windows)
-</li>
-</ul>
-
+<pre><code>echo %ANDROID_HOME%
+echo %PATH%
+echo %JAVA_HOME%
+</code></pre>
 </details>
 
-<h3>Установка необходимого программного обеспечения</h3>
-<p>Если вышеупомянутые проверки не прошли успешно, установите необходимые компоненты, следуя ссылкам:</p>
+<h3>Установка необходимого ПО и настройка путей</h3>
+
+<details>
+<summary>Если некоторые компоненты не установлены, следуйте этим инструкциям:</summary>
 
 <ol>
 <li><strong>Java Development Kit (JDK):</strong>
-<a href="https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html">Скачать и установить JDK 17 или выше</a>
-</li>
-
+<a href="https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html">Скачайте и установите JDK</a></li>
 <li><strong>Node.js и NPM:</strong>
-<a href="https://nodejs.org/en/">Скачать и установить Node.js (включает NPM)</a>
-</li>
-
-<li><strong>Appium:</strong>
-<pre><code>npm install -g appium</code></pre>
-</li>
-
+<a href="https://nodejs.org/en/">Скачайте и установите Node.js (включает NPM)</a></li>
 <li><strong>Android Studio:</strong>
-<a href="https://developer.android.com/studio">Скачать и установить Android Studio (включает Android SDK и ADB)</a>
-</li>
+<a href="https://developer.android.com/studio">Скачайте и установите Android Studio</a></li>
+<li><strong>Appium:</strong>
+<pre><code>npm install -g appium</code></pre></li>
+<li>Настройте переменные среды по вышеуказанным инструкциям.</li>
 </ol>
-
-<h3>Настройка переменных среды</h3>
-<details>
+</details>
 <summary>Настройка переменных среды после установки</summary>
 <p>После установки всех компонентов, убедитесь, что переменные среды настроены правильно.</p>
 
@@ -92,3 +81,7 @@ export JAVA_HOME=`/usr/libexec/java_home -v 17`</code></pre>
 setx PATH "%PATH%;%ANDROID_HOME%\emulator;%ANDROID_HOME%\tools;%ANDROID_HOME%\tools\bin;%ANDROID_HOME%\platform-tools"
 setx JAVA_HOME "C:\Path\To\Your\JDK17"</code></pre>
 </details>
+
+<h2>Запуск проекта</h2>
+
+<p>(Инструкции по запуску проекта будут добавлены позже)</p>
