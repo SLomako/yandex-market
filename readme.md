@@ -20,35 +20,11 @@ java -version       # Проверка Java
 node -v             # Проверка Node.js
 npm -v              # Проверка NPM
 appium -v           # Проверка Appium
+adb version         # Проверка Android Debug Bridge
 echo $ANDROID_HOME  # Проверка пути Android SDK (macOS)
 echo $JAVA_HOME     # Проверка пути Java JDK (macOS)
 echo %ANDROID_HOME% # Проверка пути Android SDK (Windows)
 echo %JAVA_HOME%    # Проверка пути Java JDK (Windows)
-adb version         # Проверка Android Debug Bridge
-```
-
-#### Проверка переменных среды
-
-##### Для macOS:
-
-```bash
-echo "JAVA_HOME: $JAVA_HOME"
-echo "ANDROID_HOME: $ANDROID_HOME"
-echo "Node.js version: $(node -v)"
-echo "NPM version: $(npm -v)"
-echo "Appium version: $(appium -v)"
-adb version # Проверка версии Android Debug Bridge
-```
-
-##### Для Windows:
-
-```cmd
-echo "JAVA_HOME: %JAVA_HOME%"
-echo "ANDROID_HOME: %ANDROID_HOME%"
-node -v # Проверка версии Node.js
-npm -v # Проверка версии NPM
-appium -v # Проверка версии Appium
-adb version # Проверка версии Android Debug Bridge
 ```
 
 </details>
