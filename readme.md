@@ -83,7 +83,12 @@ set PATH=%PATH%;%ANDROID_HOME%\emulator;%ANDROID_HOME%\tools;%ANDROID_HOME%\tool
 
 ## Запуск проекта
 
-Скачайте проект из репозитория и откройте его в Android Studio или вашей IDE.
+Скачайте проект из репозитория и откройте его в Android Studio.
+
+При первом запуске установите драйвер:
+```bash
+appium driver install uiautomator2
+```
 
 Запустите Appium Server открыв терминал и выполните команду:
 ```bash
