@@ -1,4 +1,4 @@
-package ru.lomakosv.helpers;
+package ru.lomakosv.androidtest.utils;
 
 import com.codeborne.selenide.Selenide;
 

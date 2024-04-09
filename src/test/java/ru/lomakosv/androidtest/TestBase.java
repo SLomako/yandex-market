@@ -1,4 +1,4 @@
-package ru.lomakosv.tests;
+package ru.lomakosv.androidtest;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
@@ -8,12 +8,16 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 
 import io.qameta.allure.selenide.AllureSelenide;
+import ru.lomakosv.androidtest.utils.AppInitializer;
 import ru.lomakosv.drivers.LocalDriver;
-import ru.lomakosv.helpers.AppInitializer;
 import ru.lomakosv.helpers.Attach;
+import ru.lomakosv.junit.annotation.AllureListener;
 
+@AllureListener
+@Tag("android")
 public class TestBase {
 
     private final AppInitializer appInitializer = new AppInitializer();
@@ -33,7 +37,6 @@ public class TestBase {
 
     @AfterEach
     void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         closeWebDriver();
     }

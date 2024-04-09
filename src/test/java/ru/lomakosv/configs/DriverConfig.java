@@ -2,13 +2,10 @@ package ru.lomakosv.configs;
 
 import org.aeonbits.owner.Config;
 
-/**
- * Чтение ключей из driver.properties
- */
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
-        "classpath:configs/driver.properties",
+        "classpath:configs/${platform}.properties"
 })
 public interface DriverConfig extends Config {
     @Key("deviceName")
@@ -25,6 +22,9 @@ public interface DriverConfig extends Config {
 
     @Key("app")
     String app();
+
+    @Key("udid")
+    String udid();
 
     @Key("remoteURL")
     String remoteURL();

@@ -1,4 +1,4 @@
-package ru.lomakosv.pages;
+package ru.lomakosv.androidtest.pages;
 
 import static com.codeborne.selenide.Selenide.$;
 import static io.appium.java_client.AppiumBy.androidUIAutomator;

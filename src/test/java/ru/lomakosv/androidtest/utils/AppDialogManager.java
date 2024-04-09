@@ -1,4 +1,4 @@
-package ru.lomakosv.pages;
+package ru.lomakosv.androidtest.utils;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.appium.SelenideAppium.$;
