@@ -1,18 +1,20 @@
-package ru.lomakosv.tests;
+package ru.lomakosv.androidtest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static io.qameta.allure.Allure.step;
 import static ru.lomakosv.helpers.enums.PermissionAction.DONT_ALLOW;
 import static ru.lomakosv.helpers.enums.PermissionAction.SKIP;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import ru.lomakosv.helpers.Utils;
-import ru.lomakosv.pages.AppDialogManager;
-import ru.lomakosv.pages.AuthorizationPage;
-import ru.lomakosv.pages.CartPage;
-import ru.lomakosv.pages.CatalogPage;
-import ru.lomakosv.pages.NavigationBar;
+import io.qameta.allure.AllureId;
+import ru.lomakosv.androidtest.utils.Scroll;
+import ru.lomakosv.androidtest.utils.AppDialogManager;
+import ru.lomakosv.androidtest.pages.AuthorizationPage;
+import ru.lomakosv.androidtest.pages.CartPage;
+import ru.lomakosv.androidtest.pages.CatalogPage;
+import ru.lomakosv.androidtest.pages.NavigationBar;
 
 public class CartTest extends TestBase {
 
@@ -24,7 +26,9 @@ public class CartTest extends TestBase {
     private final CartPage cartPage = new CartPage();
 
     @Test
-    void testCaseOne() {
+    @AllureId("0001")
+    @DisplayName("Тест-кейс №1:")
+    void testAddProductInCart() {
         step("Закрыть окно авторизации для выбора Яндекс аккаунта", () -> {
             authorizationPage.clickBackArrow();
 
@@ -39,16 +43,16 @@ public class CartTest extends TestBase {
             navigationBar.clickOnCatalog();
         });
         step("Перейти в раздел 'Книги'", () -> {
-            Utils.scrollToAndClick("Книги");
+            Scroll.scrollToAndClick("Книги");
         });
         step("Добавить первый предложенный товар в корзину по кнопке 'В корзину'", () -> {
             productName = catalogPage.addFirstProductToCart();
         });
         step("Перейти в корзину и проверить, что выбранный товар отображается в корзине", () -> {
             navigationBar.clickOnCart();
-            boolean isBookPresentInCart = cartPage.isProductPresentInCart(productName);
+            boolean isPresentInCart = cartPage.isProductPresentInCart(productName);
 
-            assertTrue(isBookPresentInCart, productName + "' не найден в корзине!");
+            assertTrue(isPresentInCart, productName + "' не найден в корзине!");
         });
     }
 }
