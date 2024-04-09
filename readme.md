@@ -4,7 +4,7 @@
   <img src=".github/logo/logo.png" alt="Яндекс-Маркет">
 </p>
 
-## Настройка проекта
+## Настройка проекта для Android
 
 ### Предварительная проверка
 
@@ -101,7 +101,7 @@ appium --base-path /wd/hub
 Чтобы запустить тесты, выполните следующую команду:
 
 ```bash
-./gradlew clean test
+./gradlew test -Dplatform=android
 ```
 
 Убедитесь, что вы находитесь в корневой директории проекта перед запуском этой команды.
@@ -115,3 +115,50 @@ appium --base-path /wd/hub
 ```
 
 Убедитесь, что вы находитесь в корневой директории проекта перед запуском этой команды.
+
+
+
+## Настройка проекта для IOS
+
+Самостотельно установить приложение Яндекс Маркет.
+
+Запуск тестов:
+```bash
+./gradlew test -Dplatform=ios
+```
+
+# Allure Report
+
+## Android Screenshots
+
+| ![Image1](.github/screenshot/a1.png) | ![Image2](.github/screenshot/a2.png) |
+|:------------------------------------:|:------------------------------------:|
+| Screenshot 1                         | Screenshot 2                         |
+
+
+## iOS Screenshots
+
+| ![Image3](.github/screenshot/i2.png) |
+|:------------------------------------:|
+|             Screenshot 3             |
+
+
+# Видео прохождения тестов (подождать для загрузки)
+
+<table>
+  <tr>
+    <td align="center">
+      <img src=".github/gif/android.gif" width="300" alt="Android GIF" />
+      <br>Android GIF
+    </td>
+    <td align="center">
+      <img src=".github/gif/ios.gif" width="300" alt="iOS GIF" />
+      <br>iOS GIF
+    </td>
+  </tr>
+</table>
+
+
+### Контакты
+
+[![Telegram](.github/logo/telegram1.svg)](https://t.me/lom14)

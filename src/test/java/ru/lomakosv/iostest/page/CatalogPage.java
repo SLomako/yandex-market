@@ -3,7 +3,7 @@ package ru.lomakosv.iostest.page;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static io.appium.java_client.AppiumBy.iOSClassChain;
-import static ru.lomakosv.drivers.LocalDriver.driver;
+import static ru.lomakosv.drivers.IOSAppiumDriver.driver;
 
 import com.codeborne.selenide.SelenideElement;
 
