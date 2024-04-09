@@ -59,7 +59,7 @@ public class CartTest extends TestBase {
     @Test
     @AllureId("0002")
     @DisplayName("Тест-кейс №2:")
-    void testAddProductInCart2() {
+    void testAddAndDeleteProductInCart() {
         step("Закрыть окно авторизации для выбора Яндекс аккаунта", () -> {
             authorizationPage.clickBackArrow();
 
