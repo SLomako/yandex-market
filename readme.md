@@ -143,16 +143,20 @@ appium --base-path /wd/hub
 |             Screenshot 3             |
 
 
-Видео прохождения тестов 
+# Видео прохождения тестов
 
-| ![Android GIF](.github/gif/android.gif) |
-|:---------------------------------------:|
-|               Android GIF               |
-
-| ![iOS GIF](.github/gif/ios.gif) |
-|:-------------------------------:|
-|             iOS GIF             |
-
+<table>
+  <tr>
+    <td align="center">
+      <img src=".github/gif/android.gif" width="300" alt="Android GIF" />
+      <br>Android GIF
+    </td>
+    <td align="center">
+      <img src=".github/gif/ios.gif" width="300" alt="iOS GIF" />
+      <br>iOS GIF
+    </td>
+  </tr>
+</table>
 
 
 ### Контакты
