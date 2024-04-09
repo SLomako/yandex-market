@@ -55,4 +55,37 @@ public class CartTest extends TestBase {
             assertTrue(isPresentInCart, productName + "' не найден в корзине!");
         });
     }
+
+    @Test
+    @AllureId("0002")
+    @DisplayName("Тест-кейс №2:")
+    void testAddProductInCart2() {
+        step("Закрыть окно авторизации для выбора Яндекс аккаунта", () -> {
+            authorizationPage.clickBackArrow();
+
+            appInitializationHandler
+                    .closeNotificationDialogIfNeeded()
+                    .chooseLocationPermissionAction(DONT_ALLOW)
+                    .closeLocationSelectionIfNeeded()
+                    .closeAdvertisementIfNeeded()
+                    .chooseCookiePopup(SKIP);
+        });
+        step("Перейти в каталог, во вторую вкладку для выбора разделов", () -> {
+            navigationBar.clickOnCatalog();
+        });
+        step("Перейти в раздел 'Книги'", () -> {
+            Scroll.scrollToAndClick("Книги");
+        });
+        step("Добавить первый предложенный товар в корзину по кнопке 'В корзину'", () -> {
+            productName = catalogPage.addFirstProductToCart();
+        });
+        step("Перейти в корзину, удалить выбранный товар и проверить, что корзина пуста", () -> {
+            navigationBar.clickOnCart();
+            cartPage.deleteSelectedItems();
+            cartPage.confirmDeletionOfAllItemsInCart();
+
+            assertTrue(cartPage.isCartEmpty(), "Корзина не пуста!");
+
+        });
+    }
 }

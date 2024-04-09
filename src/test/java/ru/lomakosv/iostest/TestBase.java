@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 
 import io.qameta.allure.selenide.AllureSelenide;
-import ru.lomakosv.drivers.LocalDriver;
+import ru.lomakosv.drivers.IOSAppiumDriver;
 import ru.lomakosv.helpers.Attach;
 import ru.lomakosv.iostest.utils.AppInitializer;
 import ru.lomakosv.junit.annotation.AllureListener;
@@ -24,7 +24,7 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.browser = LocalDriver.class.getName();
+        Configuration.browser = IOSAppiumDriver.class.getName();
         Configuration.browserSize = null;
         Configuration.timeout = 30000;
     }

@@ -4,6 +4,6 @@ import org.aeonbits.owner.ConfigFactory;
 
 public class ConfigReader {
 
-    public static final DriverConfig emulatorConfig
-            = ConfigFactory.create(DriverConfig.class, System.getProperties());
+    public static final AppiumTestConfig emulatorConfig
+            = ConfigFactory.create(AppiumTestConfig.class, System.getProperties());
 }
